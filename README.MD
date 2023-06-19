@@ -29,7 +29,9 @@ date || credit || debit || balance
 
 ## Design
 
-A two class design has been chosen, firstly a Transaction class holds the attributes of a single transaction: date, debit amount, credit amount and ending balance. Secondly a BankAccount class holds the current balance on the account, an array of transactions and performs the following functions: deposit, withdraw and print statement.
+A two class design has been chosen:
+A Transaction class holds the attributes of a single transaction (date, debit amount, credit amount and balance after transaction).
+A BankAccount class holds the current balance, an array of transactions and performs the following functions: 'deposit', 'withdraw' and 'printStatement'.
 
 Class design plan
 ![plan document](images/initial-bank-design.png)
