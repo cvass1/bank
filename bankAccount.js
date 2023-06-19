@@ -7,23 +7,12 @@ class BankAccount{
     }
 
     deposit(amount, date) {
-        this.balance += amount;
-        const transaction = new Transaction();
-        transaction.date = date;
-        transaction.credit = amount.toFixed(2).toString();
-        transaction.balance = this.balance.toFixed(2).toString();
-        this.transactions.push(transaction);
+        this.addTransaction('credit', amount, date);
 
     }
 
     withdraw(amount, date) {
-        this.balance -= amount;
-        const transaction = new Transaction;
-        transaction.date = date;
-        transaction.debit = amount.toFixed(2).toString();
-        transaction.balance = this.balance.toFixed(2).toString();
-        this.transactions.push(transaction);
-
+        this.addTransaction('debit', amount, date);
     }
 
     printStatement() {
@@ -34,6 +23,21 @@ class BankAccount{
             statement.push(transactionText);
         });
         return(statementHeader + statement.reverse().join('\n'));
+    }
+
+    addTransaction(transactionType, amount, date) {
+        const transaction = new Transaction();
+        if (transactionType === 'credit') {
+            transaction.credit = amount.toFixed(2).toString();
+        } else if (transactionType === 'debit') {
+            transaction.debit = amount.toFixed(2).toString();
+            amount = - amount;
+        }
+        this.balance += amount;
+        transaction.balance = this.balance.toFixed(2).toString();
+        transaction.date = date;
+        this.transactions.push(transaction);
+
     }
 
 };
