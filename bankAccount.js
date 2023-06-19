@@ -1,9 +1,8 @@
-const Transaction = require("./transaction");
-
 class BankAccount{
-    constructor() {
+    constructor(Transaction) {
         this.balance = 0.00;
         this.transactions = [];
+        this.Transaction = Transaction;
     }
 
     deposit(amount, date) {
@@ -26,10 +25,10 @@ class BankAccount{
     }
 
     addTransaction(transactionType, amount, date) {
-        const transaction = new Transaction();
+        const transaction = new this.Transaction();
         if (transactionType === 'credit') {
             transaction.credit = amount.toFixed(2).toString();
-        } else if (transactionType === 'debit') {
+        } else {
             transaction.debit = amount.toFixed(2).toString();
             amount = - amount;
         }
