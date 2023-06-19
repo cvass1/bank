@@ -4,7 +4,6 @@
 
 ## The task
 
-To be able to interact with the code via a REPL (Node)
 To make deposits and withdrawals
 To print an account statement with date, amount and balance
 
@@ -28,14 +27,22 @@ date || credit || debit || balance
 10/01/2023 || 1000.00 || || 1000.00
 ```
 
+## Design
+
+A two class design has been chosen, firstly a Transaction class holds the attributes of a single transaction: date, debit amount, credit amount and ending balance. Secondly a BankAccount class holds the current balance on the account, an array of transactions and performs the following functions: deposit, withdraw and print statement.
+
+Class design plan
+![plan document](images/initial-bank-design.png)
+
 ## Setup
 
 ```zsh
 # Install packages
 npm install
 
-# To get details on test coverage:
+# To get details tests and test coverage:
 jest
+jest --coverage
 ```
 
 ## Built with
@@ -48,11 +55,6 @@ jest
 
 - Jest
   - Testing tool for JavaScript, created for Test Driven Development
-
-## Design documents
-
-Class design plan
-![plan document](images/initial-bank-design.png)
 
 ## Example
 
@@ -71,6 +73,8 @@ account.printStatement(); // returns
 // 13/01/2023 || 2000.00 ||  || 3000.00
 // 10/01/2023 || 1000.00 ||  || 1000.00
 ```
+
+![node screenshot](images/node-screenshot.png)
 
 ## Potential future developments
 
