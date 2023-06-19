@@ -4,6 +4,6 @@ class Transaction {
         this.debit = "";
     }
 
-};
+}
 
 module.exports = Transaction;

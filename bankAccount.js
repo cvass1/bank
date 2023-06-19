@@ -38,7 +38,6 @@ class BankAccount{
         this.transactions.push(transaction);
 
     }
-
-};
+}
 
 module.exports = BankAccount;
