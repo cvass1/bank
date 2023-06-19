@@ -39,6 +39,7 @@ Class design plan:
 ## Setup
 
 ```zsh
+nvm use node
 # Install packages
 npm install
 
