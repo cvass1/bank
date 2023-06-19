@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1687185217108" clover="3.2.0">
-  <project timestamp="1687185217108" name="All files">
+<coverage generated="1687188565550" clover="3.2.0">
+  <project timestamp="1687188565550" name="All files">
     <metrics statements="24" coveredstatements="24" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7" elements="33" coveredelements="33" complexity="0" loc="24" ncloc="24" packages="1" files="2" classes="2"/>
     <file name="bankAccount.js" path="/Users/carolinevassallo/Projects/bank/bankAccount.js">
       <metrics statements="21" coveredstatements="21" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="6"/>
@@ -24,7 +24,7 @@
       <line num="36" count="6" type="stmt"/>
       <line num="37" count="6" type="stmt"/>
       <line num="38" count="6" type="stmt"/>
-      <line num="44" count="1" type="stmt"/>
+      <line num="43" count="1" type="stmt"/>
     </file>
     <file name="transaction.js" path="/Users/carolinevassallo/Projects/bank/transaction.js">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
