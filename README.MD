@@ -64,13 +64,13 @@ let account = new BankAccount();
 account.deposit(1000, "10/01/2023");
 account.deposit(2000, "13/01/2023");
 account.withdraw(500, "14/01/2023");
-account.statement(); // returns
+account.printStatement(); // returns
 // date || credit || debit || balance
 // 14/01/2023 ||  || 500.00 || 2500.00
 // 13/01/2023 || 2000.00 ||  || 3000.00
 // 10/01/2023 || 1000.00 ||  || 1000.00
 ```
 
-## Future developments
+## Potential future developments
 
--
+- add flexibilty to enter transactions in any order (including ability to recognise UK date format dd/mm/yyyy)
