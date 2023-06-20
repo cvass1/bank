@@ -30,7 +30,7 @@ date || credit || debit || balance
 ## Design
 
 A three class design has been chosen:
-A Transaction class holds the attributes of a single transaction (date, debit amount, credit amount and balance after transaction).
+A Transaction class holds the attributes of a single transaction (date, debit amount, credit amount and balance after transaction) and has one method setDate() to set the current date based on the js Date object.
 A BankAccount class holds the current balance, an array of transactions and performs the following functions: 'deposit', and 'withdraw'.
 A Statement class takes a single bankAccount object as an argument and prints all the transactions held within bankAccount as a statement.
 
