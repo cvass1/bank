@@ -67,14 +67,14 @@ const Transaction = require('./transaction');
 const BankAccount = require('./bankAccount');
 
 let account = new BankAccount(Transaction);
-account.deposit(1000, "10/01/2023");
-account.deposit(2000, "13/01/2023");
-account.withdraw(500, "14/01/2023");
+account.deposit(1000);
+account.deposit(2000);
+account.withdraw(500);
 account.printStatement(); // returns
 // date || credit || debit || balance
-// 14/01/2023 ||  || 500.00 || 2500.00
-// 13/01/2023 || 2000.00 ||  || 3000.00
-// 10/01/2023 || 1000.00 ||  || 1000.00
+// 20/06/2023 ||  || 500.00 || 2500.00
+// 20/06/2023 || 2000.00 ||  || 3000.00
+// 20/06/2023 || 1000.00 ||  || 1000.00
 ```
 
 ![node screenshot](images/node-screenshot.png)

@@ -5,13 +5,12 @@ class BankAccount{
         this.Transaction = Transaction;
     }
 
-    deposit(amount, date) {
-        this.addTransaction('credit', amount, date);
-
+    deposit(amount) {
+        this.addTransaction('credit', amount);
     }
 
-    withdraw(amount, date) {
-        this.addTransaction('debit', amount, date);
+    withdraw(amount) {
+        this.addTransaction('debit', amount);
     }
 
     printStatement() {
@@ -24,8 +23,9 @@ class BankAccount{
         return(statementHeader + statement.reverse().join('\n'));
     }
 
-    addTransaction(transactionType, amount, date) {
+    addTransaction(transactionType, amount) {
         const transaction = new this.Transaction();
+        transaction.setDate();
         if (transactionType === 'credit') {
             transaction.credit = amount.toFixed(2).toString();
         } else {
@@ -34,7 +34,7 @@ class BankAccount{
         }
         this.balance += amount;
         transaction.balance = this.balance.toFixed(2).toString();
-        transaction.date = date;
+        
         this.transactions.push(transaction);
 
     }
