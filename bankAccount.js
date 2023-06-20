@@ -13,16 +13,6 @@ class BankAccount{
         this.addTransaction('debit', amount);
     }
 
-    printStatement() {
-        let statementHeader = "date || credit || debit || balance\n"
-        let statement = [];
-        this.transactions.forEach( (transaction) => {
-            let transactionText = `${transaction.date} || ${transaction.credit} || ${transaction.debit} || ${transaction.balance}`;
-            statement.push(transactionText);
-        });
-        return(statementHeader + statement.reverse().join('\n'));
-    }
-
     addTransaction(transactionType, amount) {
         const transaction = new this.Transaction();
         transaction.setDate();

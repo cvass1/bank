@@ -5,13 +5,13 @@ jest.mock('./transaction')
 
 describe('BankAccount', () => {
 
-    test(('initially returns an empty bank statement'), () =>{
+    test(('initially has a balance of zero and an empty array of transactions'), () =>{
         const account = new BankAccount(Transaction);
-        statement = account.printStatement();
-        expect(statement).toEqual("date || credit || debit || balance\n")
+        expect(account.balance).toEqual(0);
+        expect(account.transactions).toEqual([]);
     });
 
-    test(('adds a deposit to the balance and displays transaction on the statement'), () =>{
+    test(('adds a deposit to the balance'), () =>{
         const account = new BankAccount(Transaction);
 
         Transaction.mockImplementation(function () {
@@ -22,10 +22,13 @@ describe('BankAccount', () => {
         });
 
         account.deposit(1000)
+        
+        expect(account.balance).toEqual(1000);
+        expect(account.transactions[0].date).toEqual("01/06/2023");
+        expect(account.transactions[0].credit).toEqual("1000.00");
+        expect(account.transactions[0].debit).toEqual("");
+        expect(account.transactions[0].balance).toEqual("1000.00");
 
-        statement = account.printStatement();
-        expectedText = "date || credit || debit || balance\n01/06/2023 || 1000.00 ||  || 1000.00"
-        expect(statement).toEqual(expectedText);
     });
 
     test(('takes away from the balance and displays transaction on the statement in reverse time order'), () =>{
@@ -49,9 +52,11 @@ describe('BankAccount', () => {
 
         account.withdraw(300);
 
-        statement = account.printStatement();
-        expectedText = "date || credit || debit || balance\n02/06/2023 ||  || 300.00 || 700.00\n01/06/2023 || 1000.00 ||  || 1000.00"
-        expect(statement).toEqual(expectedText);
+        expect(account.balance).toEqual(700);
+        expect(account.transactions[1].date).toEqual("02/06/2023");
+        expect(account.transactions[1].credit).toEqual("");
+        expect(account.transactions[1].debit).toEqual("300.00");
+        expect(account.transactions[1].balance).toEqual("700.00");
     });
 
     test(('shows multiple transactions in reverse time order'), () =>{
@@ -83,9 +88,11 @@ describe('BankAccount', () => {
 
         account.withdraw(500);
 
-        statement = account.printStatement();
-        expectedText = "date || credit || debit || balance\n14/01/2023 ||  || 500.00 || 2500.00\n13/01/2023 || 2000.00 ||  || 3000.00\n10/01/2023 || 1000.00 ||  || 1000.00"
-        expect(statement).toEqual(expectedText);
+        expect(account.balance).toEqual(2500);
+        expect(account.transactions[2].date).toEqual("14/01/2023");
+        expect(account.transactions[2].credit).toEqual("");
+        expect(account.transactions[2].debit).toEqual("500.00");
+        expect(account.transactions[2].balance).toEqual("2500.00");
     });
 
 });

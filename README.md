@@ -29,12 +29,13 @@ date || credit || debit || balance
 
 ## Design
 
-A two class design has been chosen:
+A three class design has been chosen:
 A Transaction class holds the attributes of a single transaction (date, debit amount, credit amount and balance after transaction).
-A BankAccount class holds the current balance, an array of transactions and performs the following functions: 'deposit', 'withdraw' and 'printStatement'.
+A BankAccount class holds the current balance, an array of transactions and performs the following functions: 'deposit', and 'withdraw'.
+A Statement class takes a single bankAccount object as an argument and prints all the transactions held within bankAccount as a statement.
 
 Class design plan:
-![plan document](images/initial-bank-design.png)
+![plan document](images/bank-class-design.png)
 
 ## Setup
 
@@ -65,12 +66,14 @@ jest --coverage
 // node
 const Transaction = require('./transaction');
 const BankAccount = require('./bankAccount');
+const Statement = require('./statement')
 
 let account = new BankAccount(Transaction);
 account.deposit(1000);
 account.deposit(2000);
 account.withdraw(500);
-account.printStatement(); // returns
+let statement = new Statement(account);
+statement.print(); // returns
 // date || credit || debit || balance
 // 20/06/2023 ||  || 500.00 || 2500.00
 // 20/06/2023 || 2000.00 ||  || 3000.00
