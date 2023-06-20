@@ -81,7 +81,3 @@ statement.print(); // returns
 ```
 
 ![node screenshot](images/node-screenshot.png)
-
-## Potential future developments
-
-- add flexibilty to enter transactions in any order (including ability to recognise UK date format dd/mm/yyyy)
